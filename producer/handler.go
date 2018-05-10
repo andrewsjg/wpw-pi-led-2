@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/WPTechInnovation/wpw-sdk-go/wpwithin/types"
 	"github.com/stianeikeland/go-rpio"
+	"github.com/wptechinnovation/wpw-sdk-go/wpwithin/types"
 )
 
 // Handler handles the events coming from Worldpay Within

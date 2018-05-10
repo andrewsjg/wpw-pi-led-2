@@ -7,12 +7,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/WPTechInnovation/wpw-sdk-go/wpwithin"
-	"github.com/WPTechInnovation/wpw-sdk-go/wpwithin/psp"
-	"github.com/WPTechInnovation/wpw-sdk-go/wpwithin/psp/onlineworldpay"
-	"github.com/WPTechInnovation/wpw-sdk-go/wpwithin/types"
 	"github.com/rifflock/lfshook"
 	log "github.com/sirupsen/logrus"
+	"github.com/wptechinnovation/wpw-sdk-go/wpwithin"
+	"github.com/wptechinnovation/wpw-sdk-go/wpwithin/psp"
+	"github.com/wptechinnovation/wpw-sdk-go/wpwithin/psp/onlineworldpay"
+	"github.com/wptechinnovation/wpw-sdk-go/wpwithin/types"
 )
 
 // Application flags
@@ -56,7 +56,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	_wpw, err := wpwithin.Initialise("pi-led-producer", "Worldpay Within Pi LED Demo - Producer")
+	_wpw, err := wpwithin.Initialise("pi-led-producer", "Worldpay Within Pi LED Demo - Producer", "")
 	wpw = _wpw
 
 	errCheck(err, "WorldpayWithin Initialise")
@@ -268,7 +268,7 @@ func initLog() error {
 		log.WarnLevel:  "logs/warn.log",
 		log.PanicLevel: "logs/panic.log",
 		log.FatalLevel: "logs/fatal.log",
-	}))
+	}, new(log.TextFormatter)))
 
 	f, err := os.OpenFile("/dev/null", os.O_WRONLY|os.O_CREATE, 0755)
 
